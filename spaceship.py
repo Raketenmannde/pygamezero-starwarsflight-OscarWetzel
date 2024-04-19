@@ -8,6 +8,10 @@ ship = Actor("player/spaceships/playership1_blue")
 ship.x = 370
 ship.y = 550
 
+ship2 = Actor("player/spaceships/playership1_green")
+ship2.x = 370
+ship2.y = 550
+
 gem = Actor("items/gemgreen")
 gem.x = random.randint(20, 780)
 gem.y = 0
@@ -28,6 +32,11 @@ def update():
     if keyboard.right:
         ship.x = ship.x + 5
 
+    if keyboard.a:
+        ship2.x = ship2.x - 5
+    if keyboard.d:
+        ship2.x = ship2.x + 5
+
     gem.y = gem.y + 4 + score / 5
     if gem.y > 600:
         game_over = True
@@ -47,6 +56,7 @@ def draw():
     else:
         gem.draw()
         ship.draw()
+        ship2.draw()
         screen.draw.text(
             "Score: " + str(score), (15, 10), color=(255, 255, 255), fontsize=30
         )
